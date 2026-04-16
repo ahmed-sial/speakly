@@ -66,4 +66,16 @@ public class User {
         this.lastSeen = now;
    }
 
+   // Avoid validation logic when loading existing data
+   public static @NonNull User reconstitute(
+           UserId userId,
+           String fullName,
+           Email email,
+           String passwordHash,
+           boolean isActive,
+           Instant lastSeen
+   ) {
+        return new User(userId, fullName, email, passwordHash, isActive, lastSeen);
+   }
+
 }
