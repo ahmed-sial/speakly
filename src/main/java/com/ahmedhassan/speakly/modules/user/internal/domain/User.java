@@ -78,4 +78,27 @@ public class User {
         return new User(userId, fullName, email, passwordHash, isActive, lastSeen);
    }
 
+    public UserId getUserId() {
+        return userId;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public Instant getLastSeen() {
+        return lastSeen;
+    }
 }
