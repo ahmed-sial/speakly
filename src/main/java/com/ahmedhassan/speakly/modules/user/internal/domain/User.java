@@ -2,19 +2,23 @@ package com.ahmedhassan.speakly.modules.user.internal.domain;
 
 import org.jspecify.annotations.NonNull;
 
+import java.time.Instant;
+
 public class User {
     private final UserId userId;
     private String fullName;
     private final Email email;
     private String passwordHash;
     private boolean isActive;
+    private Instant lastSeen;
 
-    public User(UserId userId, String fullName, Email email, String passwordHash, boolean isActive) {
+    public User(UserId userId, String fullName, Email email, String passwordHash, boolean isActive, Instant lastSeen) {
         this.userId = userId;
         this.fullName = fullName;
         this.email = email;
         this.passwordHash = passwordHash;
         this.isActive = isActive;
+        this.lastSeen = lastSeen;
     }
 
     public static @NonNull User register(String fullName, String email, String passwordHash) {
@@ -28,7 +32,8 @@ public class User {
                 normalizedName,
                 Email.of(email),
                 passwordHash,
-                true
+                true,
+                null
         );
     }
 
@@ -55,6 +60,10 @@ public class User {
         if (this.passwordHash == null || passwordHash.isBlank())
             throw new IllegalArgumentException("Password hash is required");
         this.passwordHash = passwordHash;
+   }
+
+   public void markSeen(Instant now) {
+        this.lastSeen = now;
    }
 
 }
