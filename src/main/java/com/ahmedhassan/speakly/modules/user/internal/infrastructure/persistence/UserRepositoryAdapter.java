@@ -1,9 +1,9 @@
 package com.ahmedhassan.speakly.modules.user.internal.infrastructure.persistence;
 
 import com.ahmedhassan.speakly.common.exception.UserNotFoundException;
+import com.ahmedhassan.speakly.common.shared.domain.UserId;
 import com.ahmedhassan.speakly.modules.user.internal.application.UserMapper;
 import com.ahmedhassan.speakly.modules.user.internal.domain.User;
-import com.ahmedhassan.speakly.modules.user.internal.domain.UserId;
 import com.ahmedhassan.speakly.modules.user.internal.domain.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.NonNull;

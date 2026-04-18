@@ -1,4 +1,4 @@
-package com.ahmedhassan.speakly.modules.user.api;
+package com.ahmedhassan.speakly.common.shared.domain;
 
 import org.jspecify.annotations.NonNull;
 import org.springframework.modulith.NamedInterface;
@@ -6,7 +6,6 @@ import org.springframework.modulith.NamedInterface;
 import java.util.Objects;
 import java.util.UUID;
 
-@NamedInterface("user_id")
 public final class UserId {
 
     private final UUID value;

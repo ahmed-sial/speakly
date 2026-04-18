@@ -1,5 +1,6 @@
 package com.ahmedhassan.speakly.modules.user.internal.domain;
 
+import com.ahmedhassan.speakly.common.shared.domain.UserId;
 import org.jspecify.annotations.NonNull;
 
 import java.time.Instant;

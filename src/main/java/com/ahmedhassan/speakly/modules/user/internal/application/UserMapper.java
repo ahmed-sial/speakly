@@ -1,8 +1,8 @@
 package com.ahmedhassan.speakly.modules.user.internal.application;
 
+import com.ahmedhassan.speakly.common.shared.domain.UserId;
 import com.ahmedhassan.speakly.modules.user.internal.domain.Email;
 import com.ahmedhassan.speakly.modules.user.internal.domain.User;
-import com.ahmedhassan.speakly.modules.user.internal.domain.UserId;
 import com.ahmedhassan.speakly.modules.user.internal.infrastructure.persistence.UserEntity;
 import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Component;
