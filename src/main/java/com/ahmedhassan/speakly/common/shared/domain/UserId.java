@@ -1,10 +1,12 @@
-package com.ahmedhassan.speakly.modules.user.internal.domain;
+package com.ahmedhassan.speakly.modules.user.api;
 
 import org.jspecify.annotations.NonNull;
+import org.springframework.modulith.NamedInterface;
 
 import java.util.Objects;
 import java.util.UUID;
 
+@NamedInterface("user_id")
 public final class UserId {
 
     private final UUID value;
