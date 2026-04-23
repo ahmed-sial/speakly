@@ -1,0 +1,46 @@
+services:
+  postgres:
+    container_name: postgres-speakly
+    image: postgres
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: speakly_db
+    volumes:
+      - postgres:/var/lib/postgresql
+    ports:
+      - "5431:5432"
+    networks:
+      - speakly-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U username -d speakly_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  keycloak:
+    container_name: keycloak-speakly
+    image: quay.io/keycloak/keycloak:26.6.0
+    ports:
+      - "9090:8080"
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/speakly_db
+      KC_DB_USERNAME: username
+      KC_DB_PASSWORD: password
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - speakly-network
+    command:
+      - "start-dev"
+
+networks:
+  speakly-network:
+    driver: bridge
+volumes:
+  postgres:
+    driver: local
