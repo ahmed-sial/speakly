@@ -20,7 +20,7 @@ import java.util.UUID;
         name = "chat",
         uniqueConstraints = @UniqueConstraint(
                 name = "uniqueUserAndRecipient",
-                columnNames= {"userId", "recipientId"}
+                columnNames= {"senderId", "recipientId"}
         )
 )
 public class ChatEntity extends BaseEntity {
@@ -29,7 +29,7 @@ public class ChatEntity extends BaseEntity {
     private UUID id;
 
     @Column(nullable = false)
-    private UUID userId;
+    private UUID senderId;
 
     @Column(nullable = false)
     private UUID recipientId;

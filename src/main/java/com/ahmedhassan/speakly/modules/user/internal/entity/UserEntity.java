@@ -2,12 +2,14 @@ package com.ahmedhassan.speakly.modules.user.internal.entity;
 
 import com.ahmedhassan.speakly.common.entity.BaseEntity;
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.util.UUID;
 
@@ -33,4 +35,10 @@ public class UserEntity extends BaseEntity {
     private String email;
 
     private Instant lastSeenAt;
+
+    @Transient
+    public boolean isOnline() {
+        // Returns true if lastSeenAt is within the last 5 minutes
+        return lastSeenAt != null && lastSeenAt.isAfter(Instant.now().minus(Duration.ofMinutes(5)));
+    }
 }

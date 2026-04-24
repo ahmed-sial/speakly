@@ -1,4 +1,4 @@
-package com.ahmedhassan.speakly.modules.messages.entity;
+package com.ahmedhassan.speakly.modules.messages.internal.entity;
 
 public enum MessageType {
     TEXT,

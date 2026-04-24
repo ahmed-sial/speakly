@@ -1,4 +1,4 @@
-package com.ahmedhassan.speakly.modules.messages.entity;
+package com.ahmedhassan.speakly.modules.messages.internal.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "message")
-public class MessageEntity {
+public class Message {
     @Id
     @SequenceGenerator(
             name = "msg_seq",
